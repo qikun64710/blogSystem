@@ -11,18 +11,29 @@ export default function BlogLayout() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Hide nav on home (hero covers it), show on scroll
   const isHome = location.pathname === '/';
 
   return (
-    <div>
-      <nav className={`blog-nav-bar ${scrolled || !isHome ? 'scrolled' : ''}`}>
-        <Link to="/" className="nav-logo">
-          Ink<span>.</span>Blog
+    <div className="blog-layout">
+      <nav className={`blog-nav ${scrolled || !isHome ? 'scrolled' : ''}`}>
+        <Link to="/" className="nav-brand">
+          <svg className="nav-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>
+          <span className="nav-brand-text">Ink<span>.</span>Blog</span>
         </Link>
         <div className="nav-links">
-          <Link to="/">首页</Link>
-          <Link to="/login">管理</Link>
+          <Link to="/">Home</Link>
+          <Link to="/#articles">Articles</Link>
+          <Link to="/login" className="nav-admin-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            Admin
+          </Link>
         </div>
       </nav>
 
@@ -31,13 +42,15 @@ export default function BlogLayout() {
       </main>
 
       <footer className="site-footer">
-        <div>
-          &copy; 2026 Ink.Blog — 用文字记录思考
+        <div className="footer-left">
+          <span>Copyright &copy; 2026 Ink.Blog</span>
+          <Link to="/login" className="footer-link">Admin</Link>
         </div>
-        <div className="site-footer-links">
-          <Link to="/login">管理后台</Link>
+        <div className="footer-right">
+          <span className="footer-text">用文字记录思考</span>
         </div>
       </footer>
     </div>
   );
 }
+
