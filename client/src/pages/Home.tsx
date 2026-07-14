@@ -71,7 +71,7 @@ export default function Home() {
             <span className="hero-badge-dot" />
             Software Engineer & Writer
           </div>
-          <h1 className="hero-title">HI, INK.BLOG!</h1>
+          <h1 className="hero-title" data-text="HI, INK.BLOG!">HI, INK.BLOG!</h1>
           <p className="hero-subtitle">用代码构建世界，用文字记录思考。</p>
           <p className="hero-subtitle-en">Building with code, thinking with words.</p>
           <div className="hero-stats">
@@ -193,7 +193,6 @@ export default function Home() {
         <section className="section-block" id="articles">
           <div className="section-header-row">
             <div>
-              <div className="section-eyebrow">Recent Posts</div>
               <h2 className="section-title">Latest Articles</h2>
             </div>
             {totalPages > 1 && (
